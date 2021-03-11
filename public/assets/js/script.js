@@ -6,32 +6,13 @@ $(document).ready(function(){
   $('materialboxed').materialbox();
 });
 
-//  SIDENAV
-document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.sidenav');
-    const instances = M.Sidenav.init(elems, options);
-  });
-  // UNCOMMENT FOR DROPDOWN MENUS ON SIDENAV
-//    const collapsibleElem = document.querySelector('.collapsible');
-//    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-//  HANDLEBARS
-app.set("view engine", "hbs");
-app.engine('hbs', exphbs({
-  extname: 'hbs',
-  defaultLayout: 'main',
-  layoutsDir: __dirname + 'views/layouts',
-  partialsDir: __dirname + 'views/partials',
-
-}));
-
 //  PEXEL
 //Pexel API
 $(document).ready(function(){
   var api_key = "563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617"
   var image = ''
 
-  $("#form").submit(function (event) {
+  $("#photoForm").submit(function (event) {
     event.preventDefault()
     var search = $("#search").val()
 
@@ -64,3 +45,36 @@ $(document).ready(function(){
 
 })
 
+$("#form").on('submit', function (event) {
+    event.preventDefault()
+    console.log("clicked")
+    const inputText = $("#blogPost").val()
+    console.log(inputText);
+
+    $.ajax({
+      method: 'POST',
+      url: "/blog",
+      data: {text: inputText}
+
+    }).then(response  => {
+      console.log(response);
+      window.location.reload()
+    }).catch(err => console.log(err))
+
+  })
+
+  $(".delete").on('click', function (event) {
+    event.preventDefault()
+    const blogId = $(this).attr("id")
+    console.log(blogId)
+
+    $.ajax({
+      method: 'DELETE',
+      url: `/blog/${blogId}`
+    }).then(response =>{
+      console.log(response);
+      window.location.reload()
+    }).catch(err => console.log(err))
+  })
+
+  

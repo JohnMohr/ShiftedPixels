@@ -3,8 +3,7 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 const db = require('./models')
-const routes = require('./controllers/user-controller')
-
+const routes = require('./controllers/user-controller.js')
 
 
 // Sets up the Express App

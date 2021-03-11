@@ -1,6 +1,7 @@
   
 'use strict';
 
+
 module.exports = (app, db) => {
   // GET all blog
   app.get('/blog', (req, res) => {

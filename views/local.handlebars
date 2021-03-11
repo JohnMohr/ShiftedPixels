@@ -1,15 +1,16 @@
 <main id="sb-main">
 {{> navbar }}
 {{> header }}
-<div class="container">
+{{!-- <div class="container">
     <div class="row">
         <div class="col s12">
             <a class="center">
                 <h5>Image Search:</h5>
             </a>
         </div>
-        <div class="col s12">
-            <form id="form">
+        <div class="row">
+            <div class="col s12">
+            <form id="photoForm">
                 <div class="form-group">
                     <input type="text" class="form-control" id="search">
                 </div>
@@ -22,33 +23,41 @@
                     <div id="images"></div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="container">
     <div class="row">
         <div class="col s12">
             <a class="center">
-                <h5>Say Something!</h5>
+                <h3 class="center-align">GIVE A LOCAL SHOUTOUT</h3>
             </a>
         </div>
-        <div class="col s12">
+    </div>
+        <div class="row">
+        <div class="col s6">
             <form id="form">
                 <div class="form-group">
                     <input type="text" class="form-control" id="blogPost">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-danger " value="blog">
+                    <input type="submit" class="btn btn-danger " value="shoutout">
                 </div>
             </form>
-            <div class="row">
-                <div class="col s12">
-                    <div id="blogs"></div>
-                </div>
+        </div>
+        <div class="col s6">
+            <div id="blogs">
+                {{#each blogtext}}
+                    <h3>{{text}}</h3>
+                    <button class="delete"id={{id}}>DELETE</button>
+                {{/each}}
             </div>
         </div>
-    </div>
+    </div> 
 </div>
+
+
 
 
 </main>

@@ -3,6 +3,8 @@ const router = express.Router();
 const db = require('../models');
 const bcrypt = require("bcrypt");
 
+
+
 router.post("/signup", (req, res) => {
     console.log(req.body)
     db.User.create({
@@ -67,14 +69,83 @@ router.get("/community",function(req,res){
 	res.render("community")
 })
 router.get("/local",function(req,res){
-	res.render("local")
+	const empty = {}
+  const emptyArray = [];
+  //API call to backend to pull up blog posts
+  db.Blog.findAll({attributes: ["id","text"]}).then(blogposts => {
+    console.log(blogposts);
+    for (let index = 0; index < blogposts.length; index++) {
+      emptyArray.push(blogposts[index].dataValues)
+    }
+    empty.blogtext = emptyArray;
+    res.render("local", empty);
+  }).catch(err => console.log(err))
+
+  //KOBE
+  
 })
 router.get("/user",function(req,res){
 	res.render("user")
 })
 router.get("/settings",function(req,res){
 	res.render("settings")
-})
+});
+
+// GET all blog
+router.get('/blog', (req, res) => {
+  // res.json(db)
+  db.Blog.findAll()
+    .then(blog => {
+      res.json(blog);
+    });
+});
+
+// GET one blog by id
+router.get('/blog/:id', (req, res) => {
+  const id = req.params.id;
+  db.Blog.find({
+    where: { id: id}
+  })
+    .then(blog => {
+      res.json(blog);
+    });
+});
+
+// POST single blog
+router.post('/blog', (req, res) => {
+  const text = req.body.text;
+  db.Blog.create({
+    text: text,
+  })
+    .then(newBlog => {
+    res.json(newBlog);
+  });
+});
+
+// PATCH single blog
+router.put('/blog/:id', (req, res) => {
+  const id = req.params.id;
+  const updates = req.body;
+  db.Blog.find({
+    where: { id: id }
+  })
+    .then(blog => {
+      return blog.updateAttributes(updates);
+    })
+    .then(updatedBlog => {
+      res.json(updatedBlog);
+    });
+});
+
+router.delete('/blog/:id', (req, res) => {
+  const id = req.params.id;
+  db.Blog.destroy({
+    where: { id: id }
+  })
+    .then(deletedBlog => {
+      res.json(deletedBlog);
+    });
+});
 
 
 module.exports = router;
