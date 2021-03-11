@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    background: dimgray;
+  }
+html {
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+  }
+
+.sb-main {
+    padding-left: 300px;
+  }
+
+@media only screen and (max-width : 992px) {
+    main, .sb-main {
+      padding-left: 0;
+    }
+  };
