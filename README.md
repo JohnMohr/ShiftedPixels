@@ -12,6 +12,8 @@
 
 SHIFTEDPIXELS is a beta of the ShiftyPiXels project. Aimed at delivering a community environment from which delight and photoshop mayhem can be had.
 
+![SHIFTED PIXELS](https://github.com/JohnMohr/ShiftedPixels/blob/main/shiftedpixels.gif?raw=true)
+
 ## Table of Conents
     *[Installation](#projectInstall)
     
