@@ -77,4 +77,20 @@ $("#form").on('submit', function (event) {
     }).catch(err => console.log(err))
   })
 
+
+  // Don't actually want update functionality for the SHOUTOUT wall. Only Create/Delete. Still wanted to show it could be an option.
+  // $(".update").on('click', function (event) {
+  //   event.preventDefault()
+  //   const blogId = $(this).attr("id")
+  //   console.log(blogId)
+
+  //   $.ajax({
+  //     method: 'PUT',
+  //     url: `/blog/${blogId}`
+  //   }).then(response =>{
+  //     console.log(response);
+  //     window.location.reload()
+  //   }).catch(err => console.log(err))
+  // })
+
   

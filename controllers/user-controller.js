@@ -91,7 +91,7 @@ router.get("/settings",function(req,res){
 	res.render("settings")
 });
 
-// GET all blog
+// READ all Shoutout
 router.get('/blog', (req, res) => {
   // res.json(db)
   db.Blog.findAll()
@@ -100,7 +100,7 @@ router.get('/blog', (req, res) => {
     });
 });
 
-// GET one blog by id
+// READ one Shoutout by id
 router.get('/blog/:id', (req, res) => {
   const id = req.params.id;
   db.Blog.find({
@@ -111,7 +111,7 @@ router.get('/blog/:id', (req, res) => {
     });
 });
 
-// POST single blog
+// CREATE single Shoutout
 router.post('/blog', (req, res) => {
   const text = req.body.text;
   db.Blog.create({
@@ -122,7 +122,7 @@ router.post('/blog', (req, res) => {
   });
 });
 
-// PATCH single blog
+// UPDATE single Shoutout
 router.put('/blog/:id', (req, res) => {
   const id = req.params.id;
   const updates = req.body;
@@ -136,7 +136,7 @@ router.put('/blog/:id', (req, res) => {
       res.json(updatedBlog);
     });
 });
-
+// DELETE single Shoutout
 router.delete('/blog/:id', (req, res) => {
   const id = req.params.id;
   db.Blog.destroy({

@@ -41,7 +41,9 @@ SHIFTEDPIXELS is a beta of the ShiftyPiXels project. Aimed at delivering a commu
 ## **Contributing**
     
 *People, Places & Things:*
-Eric and John laid the groundwork for SHIFTYPIXELS with a missing group member and a lifesucking void. Our presentation was Mostly Eric and I, the lifesucking void also explained their contributions in great detail. As the project encountered issues a beta version was created to salvage a working product about 30 commits behind its predeccesor. With Zac the TA as support, John managed to fix the broken mess to publish a beta application.
+Eric and John laid the groundwork for SHIFTYPIXELS with a missing group member and a Lifesucking Void. Our presentation was Mostly Eric and John, the Lifesucking Void also explained their contribution in ~~great~~ detail. As the project encountered issues a beta version was created to salvage a working product about 30 commits behind its predeccesor. 
+The future looked grim.
+Zac 'the TA' Stowell entered the fray with a level 10 Support skill, allowing John an attack of opportunity to fix the broken mess and publish a beta application.
 
 
 
